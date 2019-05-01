@@ -36,6 +36,15 @@ function <% blockNamePHPLower %>_cgb_block_assets() { // phpcs:ignore
 		null // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.style.build.css' ) // Version: File modification time.
 	);
 
+	// Register block renderer script for frontend.
+	wp_register_script(
+		'<% blockNamePHPLower %>-cgb-renderer-js', // Handle.
+		plugins_url( '/dist/blocks.renderer.js', dirname( __FILE__ ) ), // Block.renderer.js: Used on the frontend. Built with Webpack.
+		array( 'wp-i18n', 'wp-element' ), // Dependencies, defined above.
+		null, // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.build.js' ), // Version: filemtime — Gets file modification time.
+		true // Enqueue the script in the footer.
+	);
+
 	// Register block editor script for backend.
 	wp_register_script(
 		'<% blockNamePHPLower %>-cgb-block-js', // Handle.
