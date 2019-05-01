@@ -35,7 +35,7 @@ const formatWebpackMessages = require( cgbDevUtilsPath +
 // Build file paths.
 const theCWD = process.cwd();
 const fileBuildJS = path.resolve( theCWD, './dist/blocks.build.js' );
-const fileRendererJS = path.resolve( theCWD, './dist/blocks.renderer.js' );
+const fileRendererJS = path.resolve( theCWD, './dist/renderer.build.js' );
 const fileEditorCSS = path.resolve( theCWD, './dist/blocks.editor.build.css' );
 const fileStyleCSS = path.resolve( theCWD, './dist/blocks.style.build.css' );
 
