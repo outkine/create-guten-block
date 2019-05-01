@@ -21,3 +21,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Block Initializer.
  */
 require_once plugin_dir_path( __FILE__ ) . 'src/init.php';
+
+/**
+ * Do not add any plugin code to this file, as it is only used to load the init.php file for
+ * development and testing. The init.php file the ends up in the dist folder renamed to plugin.php
+ */

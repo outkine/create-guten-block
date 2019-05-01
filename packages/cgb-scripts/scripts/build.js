@@ -23,6 +23,7 @@ const ora = require( 'ora' );
 const path = require( 'path' );
 const chalk = require( 'chalk' );
 const webpack = require( 'webpack' );
+const copyDir = require( 'copy-dir' );
 const fileSize = require( 'filesize' );
 const gzipSize = require( 'gzip-size' );
 const resolvePkg = require( 'resolve-pkg' );
@@ -37,6 +38,9 @@ const theCWD = process.cwd();
 const fileBuildJS = path.resolve( theCWD, './dist/blocks.build.js' );
 const fileEditorCSS = path.resolve( theCWD, './dist/blocks.editor.build.css' );
 const fileStyleCSS = path.resolve( theCWD, './dist/blocks.style.build.css' );
+
+// Exclude these files from the outputted plugin files
+const srcFilesIgnore = [ 'blocks.js', 'renderer.js', 'common.scss' ];
 
 /**
  * Get File Size
@@ -63,12 +67,14 @@ const spinner = new ora( { text: '' } );
  * @param {json} webpackConfig config
  */
 async function build( webpackConfig ) {
+	clearConsole();
+
 	// Compiler Instance.
 	const compiler = await webpack( webpackConfig );
 
 	// Run the compiler.
 	compiler.run( ( err, stats ) => {
-		clearConsole();
+		copySourceFiles( srcFilesIgnore );
 
 		if ( err ) {
 			return console.log( err );
@@ -134,6 +140,30 @@ async function build( webpackConfig ) {
 		);
 
 		return true;
+	} );
+}
+
+async function copySourceFiles( excludeFiles ) {
+	const distFolder = path.resolve( theCWD, './dist/' );
+	const srcFolder = path.resolve( theCWD, './src/' );
+
+	copyDir.sync( srcFolder, distFolder, ( stat, filepath, filename ) => {
+		const relativePath = filepath.replace( `${ srcFolder }/`, '' )
+		const keep = ! ( relativePath.indexOf( '/' ) !== -1 || excludeFiles.indexOf( filename ) !== -1 || path.extname( filepath ) === '' )
+
+		if ( keep ) {
+			console.log(
+				'Copied',
+				`${ chalk.dim( `— ${ relativePath }` ) }`,
+				`${ chalk.green( filename ) }` );
+		}
+		return keep;
+	}, err => err );
+
+	fs.rename( `${ distFolder }/init.php`, `${ distFolder }/plugin.php`, ( err ) => {
+		if ( err ) {
+			throw err;
+		}
 	} );
 }
 
