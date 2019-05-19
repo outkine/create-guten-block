@@ -1,45 +1,42 @@
 {
-	"private": true,
-	"workspaces": [
-		"packages/*"
+	"name": "babel-preset-cgb",
+	"version": "1.6.0",
+	"description": "Babel preset used by Create Guten Block",
+	"repository": "ahmadawais/create-guten-block",
+	"license": "MIT",
+	"keywords": [
+		"gutenberg",
+		"create-gutenberg-block",
+		"create-gutenberg-blocks",
+		"wp",
+		"wordpress",
+		"cgb",
+		"wp webpack",
+		"react",
+		"ESLint",
+		"Webpack",
+		"wp-scripts",
+		"cgb-scripts",
+		"guten-scripts",
+		"babel",
+		"cgb-dev-utils",
+		"babel-preset-cgb"
 	],
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/ahmadawais/create-guten-block.git"
-	},
-	"author": "AhmadAwais",
+	"author": "Ahmad Awais (https://AhmadAwais.com/)",
 	"bugs": {
 		"url": "https://github.com/ahmadawais/create-guten-block/issues"
 	},
-	"homepage": "https://github.com/ahmadawais/create-guten-block#readme",
-	"devDependencies": {
-		"babel-eslint": "^8.2.1",
-		"chalk": "^2.3.0",
-		"eslint": "^4.17.0",
-		"eslint-config-wordpress": "^2.0.0",
-		"eslint-plugin-jest": "^21.7.0",
-		"eslint-plugin-jsx-a11y": "^6.0.3",
-		"eslint-plugin-react": "^7.6.1",
-		"eslint-plugin-wordpress": "^0.1.0",
-		"execa": "^0.9.0",
-		"lerna": "^2.8.0",
-		"ora": "^1.3.0",
-		"shelljs": "^0.8.1",
+	"files": [
+		"index.js"
+	],
+	"dependencies": {
+		"@wordpress/babel-plugin-import-jsx-pragma": "^2.1.0",
+		"babel-plugin-syntax-async-functions": "^6.13.0",
+		"babel-plugin-transform-class-properties": "6.24.1",
+		"babel-plugin-transform-object-rest-spread": "^6.26.0",
+		"babel-plugin-transform-react-jsx": "^6.24.1",
+		"babel-plugin-transform-runtime": "^6.23.0",
+		"babel-preset-env": "^1.6.0",
 		"update-notifier": "^2.3.0"
-	},
-	"scripts": {
-		"create-guten-block": "node tasks/cgb.js",
-		"demo": "node tasks/cgb.js demo",
-		"cgb": "node packages/create-guten-block/index.js",
-		"startCGB": "node packages/cgb-scripts/scripts/start.js",
-		"changelog": "lerna-changelog",
-		"updated": "lerna updated",
-		"beforepublish": "lerna bootstrap",
-		"publishScript": "bash tasks/publish.sh && echo 'Now update dependency packages.'",
-		"publishNPM": "bash tasks/publish.sh --npm-client=npm",
-		"lerna": "yarn && lerna updated && lerna bootstrap && lerna publish --independent --npm-client=npm",
-		"publishCanary": "yarn && lerna bootstrap && lerna publish --independent --npm-client=npm --canary",
-		"release": "yarn && lerna updated && lerna bootstrap && lerna publish --independent --npm-client=npm",
-		"releaseCanary": "yarn && lerna updated && lerna bootstrap && lerna publish --independent --npm-client=npm --canary"
 	}
 }
