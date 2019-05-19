@@ -1,44 +1,50 @@
 {
-	"name": "babel-preset-cgb",
-	"version": "1.6.0",
-	"description": "Babel preset used by Create Guten Block",
-	"repository": "ahmadawais/create-guten-block",
-	"license": "MIT",
-	"keywords": [
-		"gutenberg",
-		"create-gutenberg-block",
-		"create-gutenberg-blocks",
-		"wp",
-		"wordpress",
-		"cgb",
-		"wp webpack",
-		"react",
-		"ESLint",
-		"Webpack",
-		"wp-scripts",
-		"cgb-scripts",
-		"guten-scripts",
-		"babel",
-		"cgb-dev-utils",
-		"babel-preset-cgb"
-	],
-	"author": "Ahmad Awais (https://AhmadAwais.com/)",
-	"bugs": {
-		"url": "https://github.com/ahmadawais/create-guten-block/issues"
-	},
-	"files": [
-		"index.js"
-	],
-	"dependencies": {
-		"@babel/core": "^7.4.4",
-		"@babel/plugin-syntax-dynamic-import": "^7.2.0",
-		"@wordpress/babel-plugin-import-jsx-pragma": "^2.1.0",
-		"babel-plugin-syntax-async-functions": "^6.13.0",
-		"babel-plugin-transform-class-properties": "6.24.1",
-		"babel-plugin-transform-object-rest-spread": "^6.26.0",
-		"babel-plugin-transform-react-jsx": "^6.24.1",
-		"babel-plugin-transform-runtime": "^6.23.0",
-		"babel-preset-env": "^1.6.0",
-		"update-notifier": "^2.3.0"
-	}
+    "name": "babel-preset-cgb",
+    "version": "1.6.0",
+    "description": "Babel preset used by Create Guten Block",
+    "repository": "ahmadawais/create-guten-block",
+    "license": "MIT",
+    "keywords": [
+        "gutenberg",
+        "create-gutenberg-block",
+        "create-gutenberg-blocks",
+        "wp",
+        "wordpress",
+        "cgb",
+        "wp webpack",
+        "react",
+        "ESLint",
+        "Webpack",
+        "wp-scripts",
+        "cgb-scripts",
+        "guten-scripts",
+        "babel",
+        "cgb-dev-utils",
+        "babel-preset-cgb"
+    ],
+    "author": "Ahmad Awais (https://AhmadAwais.com/)",
+    "bugs": {
+        "url": "https://github.com/ahmadawais/create-guten-block/issues"
+    },
+    "files": [
+        "index.js"
+    ],
+    "dependencies": {
+        "@babel/core": "^7.4.4",
+        "@babel/plugin-proposal-class-properties": "^7.4.4",
+        "@babel/plugin-proposal-decorators": "^7.4.4",
+        "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+        "@babel/plugin-proposal-function-sent": "^7.2.0",
+        "@babel/plugin-proposal-json-strings": "^7.2.0",
+        "@babel/plugin-proposal-numeric-separator": "^7.2.0",
+        "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+        "@babel/plugin-proposal-throw-expressions": "^7.2.0",
+        "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+        "@babel/plugin-syntax-import-meta": "^7.2.0",
+        "@babel/plugin-transform-runtime": "^7.4.4",
+        "@babel/preset-env": "^7.4.4",
+        "@babel/preset-react": "^7.0.0",
+        "@wordpress/babel-plugin-import-jsx-pragma": "^2.1.0",
+        "update-notifier": "^2.3.0"
+    }
 }
