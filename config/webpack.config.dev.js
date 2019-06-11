@@ -24,6 +24,10 @@ const paths = require( './paths' );
 const externals = require( './externals' );
 const autoprefixer = require( 'autoprefixer' );
 const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
+const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
+
+// Provide unminified source files as well
+const unminifiedWebpackPlugin = new UnminifiedWebpackPlugin();
 
 // Extract style.css for both editor and frontend styles.
 const blocksCSSPlugin = new ExtractTextPlugin( {
@@ -116,7 +120,7 @@ module.exports = {
 		],
 	},
 	// Add plugins.
-	plugins: [ blocksCSSPlugin, editBlocksCSSPlugin ],
+	plugins: [ blocksCSSPlugin, editBlocksCSSPlugin, unminifiedWebpackPlugin ],
 	stats: 'minimal',
 	// stats: 'errors-only',
 	// Add externals.
