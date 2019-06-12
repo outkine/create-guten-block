@@ -127,6 +127,7 @@ module.exports = {
 	plugins: [
 		blocksCSSPlugin,
 		editBlocksCSSPlugin,
+		unminifiedWebpackPlugin,
 		// Minify the code.
 		new webpack.optimize.UglifyJsPlugin( {
 			compress: {
@@ -148,7 +149,6 @@ module.exports = {
 			},
 			sourceMap: shouldUseSourceMap,
 		} ),
-		unminifiedWebpackPlugin,
 	],
 	stats: 'minimal',
 	// stats: 'errors-only',
